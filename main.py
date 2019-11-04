@@ -9,6 +9,7 @@ alarmSong = vlc.MediaPlayer(currentPath+"song.mp3")
 
 def main():
     while True:
+        os.system("cls")
         print(getData.infoMessage())
         print("So, what the hell you want to do now, buddy?")
 
