@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import time
 
 def inSecs(string):
@@ -53,17 +52,3 @@ def printCountDown(secs, wait=True):
 
     return True
 
-def plotIt(d):
-    # Plots a dictionary.
-    x,y = d.keys(),d.values()
-
-    plt.plot(x,y)
-    plt.grid()
-    plt.show()
-
-def plotBar(d):
-    x,y = d.keys(),d.values()
-
-    plt.bar(x,y)
-    plt.grid()
-    plt.show()
