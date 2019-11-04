@@ -1,7 +1,5 @@
 import auxiliarFunctions as aux
 import tomatoRecord as tr
-import threading
-import winsound
 import getData
 import vlc
 import os
@@ -47,19 +45,9 @@ def main():
         if response == "4":
             quit()
 
-        if response == "plotWeek":
-            aux.plotBar(getData.getWeekPoms())
-            continue
-
-        if response == "plotToday":
-            aux.plotIt(getData.pomsToday())
-            continue
-
-
 
 if __name__ == "__main__":
     if not os.path.exists(os.getcwd()+"\\tomatoBase.db"):
         tr.initiateTomatoBase()
     main()
-
 
