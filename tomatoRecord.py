@@ -30,7 +30,7 @@ def getPomsBy(column, cell):
 
 def recordPom(description,code):
     # Inserts new pomodoro into database.
-    pomData = (time.strftime("%H:%M:%S"),time.strftime("%d/%m/%Y"),description,code,"20")
+    pomData = (time.strftime("%H:%M:%S"),time.strftime("%d/%m/%Y"),description,code,"20",len(getPoms()))
 
     connection = sqlite3.connect("tomatoBase.db")
     cursor = connection.cursor()
