@@ -9,12 +9,14 @@ def totalTime():
     # Returns total time spent doing pomodoros in MINUTES.
     return int(sum(tr.getEvery("duration")))
 
+
 def sinceFirst():
     # Days since first pomodoro
     firstPom = tr.getPoms()[0]
     d1 = datetime.strptime(firstPom[1], "%d/%m/%Y")
     d2 = datetime.now()
     return abs((d2 - d1).days)
+
 
 def pomsToday(date=time.strftime("%d/%m/%Y")):
     # Returns dictionary of poms done today.
@@ -60,6 +62,7 @@ def getPomTime(code):
     # returns: int minutes.
     return sum(pom[4] for pom in tr.getPoms() if pom[3] == code)
 
+
 def mostRecent(code):
     # Most recent pomodoro of given code that was done.
     poms = fromCode(code)
@@ -94,6 +97,7 @@ def infoMessage():
     today = pomsToday()
 
     return message.format(pomCount, int(hourCount), timeFormatted, weekAv, started, today)
+
 
 def codeMessage(code):
     # Code specific information prompt.
