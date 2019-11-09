@@ -1,5 +1,16 @@
 import time
 
+def cummulativeSum(aList):
+    # Takes a list of numbers and returns its cummulative sum.
+    count = 0
+    newList = []
+    for num in aList:
+        count += num
+        newList.append(count)
+    
+    return newList
+
+
 def inSecs(string):
     # Converts time in format HH:MM:SS as integer representing seconds.
     t = [int(i) for i in string.split(":")]
