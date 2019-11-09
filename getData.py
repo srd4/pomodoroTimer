@@ -43,8 +43,9 @@ def getWeekPoms(start=time.strftime("%d/%m/%Y")):
     return d
 
 
-def weekAverage(d=getWeekPoms()):
+def weekAverage():
     # Returns average worked last seven days.
+    d = getWeekPoms()
     return aux.timeFormat( int( ( ( sum( d.values() ) *60) /7) ) )[7:]
 
 
