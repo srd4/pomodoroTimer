@@ -16,6 +16,7 @@ def inSecs(string):
     t = [int(i) for i in string.split(":")]
     return (t[0]*60*60)+(t[1]*60)+t[2]
 
+
 def timeFormat(seconds):
     # Turns secs into nice format.
     # takes: int
@@ -37,6 +38,7 @@ def cleanString(aString):
             
     return newString
 
+
 def histogram(aList):
     # Counts appearences of each element in list.
     # returns:  dict()
@@ -54,6 +56,7 @@ def countDownIterator(secs):
         minutes = int(num/60)
         seconds = (num%60)
         yield "%02d:%02d"%(minutes,seconds)
+
 
 def printCountDown(secs, wait=True):
     # Calls creationg of countdown iterator and prints it.
