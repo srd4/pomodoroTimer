@@ -74,11 +74,3 @@ def plotCodes(limit = 99999,codes=getData.getAllCodes()):
     plt.grid()
     plt.legend()
     plt.show()
-
-#bar(getData.getWeekPoms())
-plotCodes(limit=20)
-
-
-
-
-

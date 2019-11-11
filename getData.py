@@ -88,7 +88,7 @@ def getAllCodes():
 
 def infoMessage():
     # General information prompt.
-    message = "You have made {} pomodoros, that is {} or {} of productive focused work. Your average this week is {} a day so far and started {} days ago.\n\nToday you have done {}\n"
+    message = "You have made {} pomodoros, that is {} hours or {} of productive focused work. Your average this week is {} a day so far and started {} days ago.\n\nToday you have done {}\n"
     pomCount = len(tr.getPoms())
     hourCount = totalTime()/60
     timeFormatted = aux.timeFormat(hourCount*60*60)
