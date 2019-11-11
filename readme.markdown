@@ -21,7 +21,7 @@ Apart from this one, there is no other dependency that you need for running this
 
 ### Modules:
 
-As you probably noticed the program is separated on different .py files. The ones that runs the script is called main.py and is the one we should run to execute our app normally. With respect to the rest, you have:
+As you probably noticed the program is separated on different `.py` files. The ones that runs the script is called main.py and is the one we should run to execute our app normally. With respect to the rest, you have:
 
 - `auxiliarFunctions.py` which has a few simple functions that implement things like making a coutdown iterator and printing it, or getting whitespace out of a string data type.
 - `tomatoRecord.py` which basically handles the database, retrieving and writting information from and on it. This is the one you should be careful when playing with. From here you can delete information and access it all (knowing a couple basic sql commands).
