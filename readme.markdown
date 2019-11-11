@@ -1,11 +1,11 @@
-###### What is pomodoroTimer?
+# What is pomodoroTimer?
 
 Have you ever had to deal with procrastination on any of its forms? If so, then you probably have dreamed about a method to take back the insane amount of time wasted into daydreaming and other numbing activities. I personally struggled with this a lot. And based on the pomodoro technique developed by Francesco Cirillo I decided to use the python skills I developed with this book to create a cmd app that with this concept, would help me optimize expense of the mental energy I dedicate to meaningful activities.
 
 
 ### Quick start.
 
-I created a function that recognizes if the directory of our database "tomatoBase.db" already exists on current working dir. In case it doesn't, executes your first pomodoro where yo have to write a brief description of what you are going to do and give it a code. Be careful, it is not yet very easy to modify information that the program wrote on database so you better think your code names right in order to have good measurement of your activities later on (although database is always updated after countdowns, so you have a few minutes to re-think your life decisions).
+I created a function that recognizes if the directory of our database `tomatoBase.db` already exists on current working dir. In case it doesn't, executes your first pomodoro where yo have to write a brief description of what you are going to do and give it a code. Be careful, it is not yet very easy to modify information that the program wrote on database so you better think your code names right in order to have good measurement of your activities later on (although database is always updated after countdowns, so you have a few minutes to re-think your life decisions).
 
 After the first pomdoro's countdown finishes you'll be able to see the normal main menu with information about the time you've spent on your activities (codes). There you'll give as input one of 4 numbers choosing on what to do next: if another pomodor, a short break, a long one, or quit the script.
 
