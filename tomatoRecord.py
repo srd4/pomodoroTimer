@@ -3,8 +3,8 @@ import sqlite3
 import time
 
 def getPoms():
-    # Retrieves all pom information from database
-    # returns: list of tuples
+    # Retrieves all pom information from database.
+    # Returns list of tuples.
     connection = sqlite3.connect("tomatoBase.db")
     cursor = connection.cursor()
     cursor.execute("SELECT * from poms")
@@ -63,6 +63,34 @@ def deleteById(id):
     return True
 
 
+def updateById(id, column, value):
+    # Updates row information where id is found.
+    connection = sqlite3.connect("tomatoBase.db")
+    cursor = connection.cursor()
+    sql_command = "UPDATE poms SET {} = {} WHERE id = {}".format(column, value, id)
+
+    cursor.execute(sql_command)
+
+    connection.commit()
+    connection.close()
+
+    return True
+
+
+def find(inTable, column, cell):
+    # Finds rows inTable' with matching cell' on a column'. Returns list.
+    connection = sqlite3.connect("tomatoBase.db")
+    cursor = connection.cursor()
+    sql_command = "SELECT * FROM {} WHERE  {} = {}".format(inTable, column, cell)
+
+    cursor.execute(sql_command)
+
+    poms = cursor.fetchall()
+    connection.close()
+
+    return poms
+
+
 def initiateTomatoBase():
     # Creates tomatoBase.db file and poms table.
     connection = sqlite3.connect("tomatoBase.db")
@@ -76,4 +104,3 @@ def initiateTomatoBase():
     connection.close()
 
     return True
-
