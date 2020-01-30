@@ -91,6 +91,11 @@ def find(inTable, column, cell):
     return poms
 
 
+def match(string):
+    # Returns list of pomodoros that on some column match string.
+    return [pom for pom in getPoms()[::-1] if string in str(pom)]
+
+
 def initiateTomatoBase():
     # Creates tomatoBase.db file and poms table.
     connection = sqlite3.connect("tomatoBase.db")

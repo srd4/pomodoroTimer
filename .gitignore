@@ -1,8 +1,0 @@
-
-other_ignore.py
-song.mp3
-__pycache__/auxiliarFunctions.cpython-36.pyc
-__pycache__/getData.cpython-36.pyc
-__pycache__/other_ignore.cpython-36.pyc
-__pycache__/tomatoRecord.cpython-36.pyc
-tomatoBase.db

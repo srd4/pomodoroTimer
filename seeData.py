@@ -1,17 +1,20 @@
-import matplotlib.pyplot as plt
-import tomatoRecord as tr
-from datetime import date, timedelta,datetime
-import auxiliarFunctions as aux
 from matplotlib.ticker import FuncFormatter, MaxNLocator
+from datetime import date, timedelta,datetime
+import matplotlib.pyplot as plt
+import auxiliarFunctions as aux
+import tomatoRecord as tr
 import getData
 
 FIRSTDATE = datetime.strptime(tr.getPoms()[0][1], "%d/%m/%Y")
 
-def bar(d):
+def bar(d, yline=None):
     # Bar plots a dictionary, Maps x,y = keys, values.
     x,y = d.keys(),d.values()
 
     plt.bar(x,y)
+
+    plt.axhline(yline, color='r', linestyle='-')
+
     plt.grid()
     plt.show()
 
@@ -59,7 +62,7 @@ def plotTimeSpentOn(code,ax):
     
     ax.xaxis.set_major_formatter(FuncFormatter(format_fn))
     ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    plt.plot(x,aux.cummulativeSum(y), label=code)
+    plt.plot(x, aux.cummulativeSum(y), label=code)
     
 
 

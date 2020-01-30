@@ -28,3 +28,16 @@ As you probably noticed the program is separated on different `.py` files. The o
 - `getdata.py` which has functions for interpreting, rearranging and filtering data we get from tomatoRecord.py.
 - `seeData.py` which for now (08/11/2019) is not in anyway combined with main.py, so in order to use its functionalities you'll have to run them by yourself on a python ide. Has functions for visualizing data.
 
+
+Ideas:
+
+Would be nice to have a little interface to edit mistakes while recording pomodoros.
+Week calendar showing what the hell I did. Can look nice since it has times of the day that I dedicated to activities.
+
+On new gui:
+
+- Problem with today frame's display, need to change to grid or something a like.
+- Currentyl can't check statistics or other frames while I'm on break frames. Want to change that.
+- Also, same frame I have problems with on today, doesn't update when a pom has been finished.
+- Nice to edit mistakes on pomodoros from tomato history frame.
+- Solve the weird effect when new data overwrites new on "most recent" frame on stats.

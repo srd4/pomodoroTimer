@@ -5,6 +5,53 @@ import datetime as dt
 import time
 
 
+
+def allDates():
+    # List of absolutely all dates as datetime objects since the first pomodoro.
+    FIRSTDATE = datetime.strptime(tr.getPoms()[0][1], "%d/%m/%Y")
+    delta = dt.datetime.today() - FIRSTDATE
+    dates = []
+    for i in range(delta.days+1):
+        date = FIRSTDATE + dt.timedelta(days=i)
+        dates.append(date)
+
+    return dates
+
+def getDoneIn(date):
+    # Returns every pomodoro done at date. Date format is spected to be %d/%m/%Y.
+    return [pom for pom in tr.getPoms() if pom[1] == date.strftime("%d/%m/%Y")]
+    
+
+def weeks():
+    # Returns weeks list, a list of lists that each have days, where a Day is a list of tuples.
+    # Each tuple has a date as first value and a list of pomodoros registered that day as second value.
+    dates = allDates()
+    weeks = []
+
+    week = []
+    for date in dates:
+        if date.weekday() == 0:
+            weeks.append(week)
+            week = []
+
+        week.append((date,))
+
+    weeks.append(week)
+    
+    return weeks
+
+
+def fillWeek(week):
+    # To fill one week data structure of the pomodoros done on each day.
+    # This since doing every week at the same time was slow.
+    return [(day[0], getDoneIn(day[0])) for day in week]
+
+
+def getWeek(index):
+    t = weeks()
+    return fillWeek(t[index])
+
+
 def totalTime():
     # Returns total time spent doing pomodoros in MINUTES.
     return int(sum(tr.getEvery("duration")))
@@ -71,10 +118,12 @@ def mostRecent(code):
 
 def longAgo(code):
     # Difference between last date in which did pom with 'code' and today IN DAYS.
-    mostRecentDate = tr.getPomsBy("code",code)[-1][1]
-    d1 = datetime.strptime(mostRecentDate, "%d/%m/%Y")
+    mostRecentPom = tr.getPomsBy("code", code)[-1]
+    d1 = datetime.strptime(mostRecentPom[0] +"-"+mostRecentPom[1], "%H:%M:%S-%d/%m/%Y")
     d2 = datetime.now()
-    return abs((d2 - d1).days)
+    delta = abs(d2-d1)
+
+    return delta
 
 
 def getAllCodes():
@@ -86,17 +135,25 @@ def getAllCodes():
     return [tup[0] for tup in tuplesList]
 
 
-def infoMessage():
-    # General information prompt.
-    message = "You have made {} pomodoros, that is {} hours or {} of productive focused work. Your average this week is {} a day so far and started {} days ago.\n\nToday you have done {}\n"
+def getInfo():
+    #Returns a tuple with several information about pomodoro database.
+    # (pomcount, hourCount, formatedHourCount, weekAverage, sinceStarted, doneToday)
     pomCount = len(tr.getPoms())
     hourCount = totalTime()/60
-    timeFormatted = aux.timeFormat(hourCount*60*60)
+    days = str(int(hourCount/24)) + " days"
     weekAv = weekAverage()
     started = sinceFirst()
     today = pomsToday()
 
-    return message.format(pomCount, int(hourCount), timeFormatted, weekAv, started, today)
+    return (pomCount, int(hourCount), days, weekAv, started, today)
+    
+
+
+def infoMessage():
+    # General information message.
+    message = "You have made {} pomodoros, that is {} hours or {} of productive focused work. Your average this week is {} a day so far and started {} days ago.\n\nToday you have done {}\n"
+
+    return message.format(*getInfo())
 
 
 def codeMessage(code):
